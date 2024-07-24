@@ -157,7 +157,11 @@
                 </div>
               </div>
               <div class="piechart-title">重要場域當日用電比例</div>
-              <PieChart labels={labelsPower} ratios={ratiosPower} />
+              <PieChart
+                labels={labelsPower}
+                ratios={ratiosPower}
+                pieScale={70}
+              />
             </div>
             <div class="each-chart">
               <div class="text">智慧水表水情資訊</div>
@@ -200,7 +204,11 @@
               </div>
 
               <div class="piechart-title">重要場域當日用水比例</div>
-              <PieChart labels={labelsWater} ratios={ratiosWater} />
+              <PieChart
+                labels={labelsWater}
+                ratios={ratiosWater}
+                pieScale={70}
+              />
             </div>
           </div>
         </div>
@@ -364,7 +372,7 @@
               .piechart-title {
                 color: #fff;
                 font-size: 18px;
-                margin: 4cqh 0 20px 0;
+                margin: 30px 0 15px 0;
               }
               &:nth-child(odd) {
                 margin: 0 5px 0 0;

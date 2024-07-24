@@ -1,12 +1,13 @@
 <script lang="ts">
   import { Pie } from "svelte-chartjs";
   import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-  import ChartDataLabels from 'chartjs-plugin-datalabels';
+  import ChartDataLabels from "chartjs-plugin-datalabels";
 
   ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
   export let labels: string[];
 
   export let ratios: number[];
+  export let pieScale: number;
 
   const chartData = {
     labels: labels,
@@ -41,31 +42,34 @@
     plugins: {
       legend: {
         display: false,
-        position: 'top' as const,
+        position: "top" as const,
       },
       title: {
         display: false,
-        text: 'Power DSum Zone Ratio'
+        text: "Power DSum Zone Ratio",
       },
       datalabels: {
         display: true,
-        color: 'white',
+        color: "white",
         formatter: (value: number, context: any) => {
-          return context.chart.data.labels[context.dataIndex] + '\n' + value + '%';
-        }
-      }
-    }
+          return (
+            context.chart.data.labels[context.dataIndex] + "\n" + value + "%"
+          );
+        },
+      },
+    },
   };
 </script>
 
-<div class="pie-container">
+<div class="pie-container" style="width: {pieScale}%; height: {pieScale}%">
   <Pie data={chartData} {options} />
 </div>
 
 <style lang="postcss">
   .pie-container {
-    width: 70%;
-    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     canvas {
       max-width: 600px;
       max-height: 600px;

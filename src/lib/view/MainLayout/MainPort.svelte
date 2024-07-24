@@ -98,14 +98,14 @@
           <div class="each-chart">
             <div class="piechart-title">各港區智慧電表當日用電比例</div>
             <div class="piechart-wrap">
-              <PieChart labels={totalLabelsPower} ratios={totalRatiosPower} />
+              <PieChart labels={totalLabelsPower} ratios={totalRatiosPower}  pieScale={90}/>
             </div>
             <div class="chart-bottom"></div>
           </div>
           <div class="each-chart">
             <div class="piechart-title">各港區智慧水表當日用水比例</div>
             <div class="piechart-wrap">
-              <PieChart labels={totalLabelsWater} ratios={totalRatiosWater} />
+              <PieChart labels={totalLabelsWater} ratios={totalRatiosWater}  pieScale={90}/>
             </div>
 
             <div class="chart-bottom"></div>
@@ -198,7 +198,7 @@
               width: calc(50% - 10px);
               box-sizing: border-box;
               padding: 10px;
-              height: 100%;
+              height: 60%;
               border: 1px solid #3075a3;
               border-radius: 40px;
               background-color: rgb(25, 36, 56);

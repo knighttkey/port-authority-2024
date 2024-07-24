@@ -5,5 +5,5 @@ export async function load({ url }) {
     throw redirect(302, "/MAIN");
   }
 }
-export const prerender = true;
-export const ssr = false;
+// export const prerender = true;
+// export const ssr = false;
