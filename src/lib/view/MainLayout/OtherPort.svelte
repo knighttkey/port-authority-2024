@@ -31,7 +31,7 @@
     "23",
   ];
   let originalDate = rawData.RESULT[0].USE_DATE;
-  let formattedDate = dayjs(originalDate, "YYYYMMDD").format("YYYY/MM/DD");
+  let formattedDate = dayjs(originalDate, "YYYYMMDD").format("YYYY/MM/DD 23:59");
   let dataRes = rawData.RESULT.map((item, index) => {
     return {
       port: item.PORT,

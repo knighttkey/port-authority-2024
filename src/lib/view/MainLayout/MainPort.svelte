@@ -28,11 +28,10 @@
     "22",
     "23",
   ];
-  console.log(timeLabels, timeLabels.length);
   // rawData.RESULT[0]
   // console.log("rawData.RESULT[0]::: ", rawData.RESULT[0]);
   let originalDate = rawData.RESULT[0].USE_DATE;
-  let formattedDate = dayjs(originalDate, "YYYYMMDD").format("YYYY/MM/DD");
+  let formattedDate = dayjs(originalDate, "YYYYMMDD").format("YYYY/MM/DD 23:59");
   const totelPower = {
     POWER_DSUM_ZONE_RATIO: [
       { zone: "高雄港", ratio: 28, dsum: 585.8 },
