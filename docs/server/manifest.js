@@ -6,20 +6,20 @@ function __memo(fn) {
 
 return {
 	appDir: "_app",
-	appPath: "_app",
+	appPath: "port-authority-2024/_app",
 	assets: new Set(["favicon.png"]),
 	mimeTypes: {".png":"image/png"},
 	_: {
-		client: {"start":"_app/immutable/entry/start.DHVTLr6U.js","app":"_app/immutable/entry/app.hdpdba6h.js","imports":["_app/immutable/entry/start.DHVTLr6U.js","_app/immutable/chunks/entry.dfI8V0ph.js","_app/immutable/chunks/scheduler.BAv4i5Wx.js","_app/immutable/chunks/control.CYgJF_JY.js","_app/immutable/entry/app.hdpdba6h.js","_app/immutable/chunks/scheduler.BAv4i5Wx.js","_app/immutable/chunks/index.CxAqFKlX.js"],"stylesheets":[],"fonts":[],"uses_env_dynamic_public":false},
+		client: {"start":"_app/immutable/entry/start.DdJzkRaX.js","app":"_app/immutable/entry/app.BV3HjVfY.js","imports":["_app/immutable/entry/start.DdJzkRaX.js","_app/immutable/chunks/entry.RcIY46Xq.js","_app/immutable/chunks/scheduler.BAv4i5Wx.js","_app/immutable/chunks/control.CYgJF_JY.js","_app/immutable/entry/app.BV3HjVfY.js","_app/immutable/chunks/scheduler.BAv4i5Wx.js","_app/immutable/chunks/index.CxAqFKlX.js"],"stylesheets":[],"fonts":[],"uses_env_dynamic_public":false},
 		nodes: [
 			__memo(() => import('./chunks/0-BqNzHLQ4.js')),
-			__memo(() => import('./chunks/1-BtiHU4u_.js')),
-			__memo(() => import('./chunks/2-8PbipLas.js')),
-			__memo(() => import('./chunks/3-CE7HfURX.js')),
-			__memo(() => import('./chunks/4-CWlc8mhI.js')),
-			__memo(() => import('./chunks/5-CqFAuJ8b.js')),
-			__memo(() => import('./chunks/6-BAaazuhI.js')),
-			__memo(() => import('./chunks/7-CxsWtKcC.js'))
+			__memo(() => import('./chunks/1-C734Tf_V.js')),
+			__memo(() => import('./chunks/2-CgM66a6z.js')),
+			__memo(() => import('./chunks/3-7_8dsQ44.js')),
+			__memo(() => import('./chunks/4-CHj1Y4yo.js')),
+			__memo(() => import('./chunks/5-xHwjJnKB.js')),
+			__memo(() => import('./chunks/6-DNw9nMZn.js')),
+			__memo(() => import('./chunks/7-DIxUDGCw.js'))
 		],
 		routes: [
 			{
@@ -76,7 +76,7 @@ return {
 
 const prerendered = new Set([]);
 
-const base = "";
+const base = "/port-authority-2024";
 
 export { base, manifest, prerendered };
 //# sourceMappingURL=manifest.js.map

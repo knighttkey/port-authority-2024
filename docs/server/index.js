@@ -2,7 +2,7 @@ import { c as create_ssr_component, s as setContext, v as validate_component, m 
 import { H as HttpError, j as json, t as text, R as Redirect, S as SvelteKitError, A as ActionFailure } from './chunks/index-DyoisQP2.js';
 import { d as decode_pathname, h as has_data_suffix, s as strip_data_suffix, a as decode_params, n as normalize_path, b as disable_search, c as add_data_suffix, m as make_trackable, r as resolve } from './chunks/exports-BGi7-Rnc.js';
 
-let base = "";
+let base = "/port-authority-2024";
 let assets = base;
 const initial = { base, assets };
 function override(paths) {
