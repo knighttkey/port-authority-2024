@@ -3,7 +3,7 @@ import { defineConfig } from "vite";
 import postcssNesting from "postcss-nesting";
 export default defineConfig({
   plugins: [sveltekit()],
-  base: process.env.NODE_ENV === 'production' ? `/port-authority-2024` : '', //資源路徑改為相對
+  base: process.env.NODE_ENV === "production" ? `/port-authority-2024` : "", //資源路徑改為相對
   define: { "process.env": {} },
   server: {
     host: "0.0.0.0",
@@ -13,9 +13,5 @@ export default defineConfig({
     postcss: {
       plugins: [postcssNesting],
     },
-  },
-  build: {
-    outDir: 'docs',
-    manifest: true,
   },
 });
