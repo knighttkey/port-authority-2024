@@ -1,7 +1,6 @@
 import { sveltekit } from "@sveltejs/kit/vite";
 import { defineConfig } from "vite";
 import postcssNesting from "postcss-nesting";
-import path from 'path';
 export default defineConfig({
   plugins: [sveltekit()],
   base: "./", //資源路徑改為相對
@@ -16,7 +15,7 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: 'docs', // 指定构建输出目录为 docs
+    outDir: 'docs',
     manifest: true,
   },
 });

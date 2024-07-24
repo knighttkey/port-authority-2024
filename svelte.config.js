@@ -1,5 +1,5 @@
 // import adapter from '@sveltejs/adapter-static'
-import adapter from '@sveltejs/adapter-node'
+import adapter from '@sveltejs/adapter-static'
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte'
 import delegateEvents from 'svelte-preprocess-delegate-events/preprocess'
 import nodePag from './package.json' assert { type: 'json' }
