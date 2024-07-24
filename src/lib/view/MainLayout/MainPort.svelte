@@ -2,7 +2,7 @@
   import rawData from "./energy_water_data_sorted.json";
   import PieChart from "./PieChart.svelte";
   import { goto } from "$app/navigation";
-  import dayjs from 'dayjs';
+  import dayjs from "dayjs";
   let timeLabels = [
     "1",
     "2",
@@ -32,7 +32,7 @@
   // rawData.RESULT[0]
   // console.log("rawData.RESULT[0]::: ", rawData.RESULT[0]);
   let originalDate = rawData.RESULT[0].USE_DATE;
-  let formattedDate = dayjs(originalDate, 'YYYYMMDD').format('YYYY/MM/DD');
+  let formattedDate = dayjs(originalDate, "YYYYMMDD").format("YYYY/MM/DD");
   const totelPower = {
     POWER_DSUM_ZONE_RATIO: [
       { zone: "高雄港", ratio: 28, dsum: 585.8 },
