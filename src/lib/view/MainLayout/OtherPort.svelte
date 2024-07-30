@@ -54,7 +54,7 @@
   });
   console.log("dataRes::: ", dataRes);
   let dataResPort = dataRes.filter((item) => {
-    return item.port === portName;
+    return item.port === 'KHH';
   });
   let barDataPower = dataResPort.map((item) => {
     return item.power_hsum;
@@ -82,7 +82,37 @@
     (item) => item.ratio
   );
 
-  function getPortNAme(portName: string) {
+  function getChineseName(areaCode: string): string {
+    switch (areaCode) {
+        case 'KEE':
+            return '基隆';
+        case 'TPE':
+            return '臺北';
+        case 'SUA':
+            return '蘇澳';
+        case 'TXG':
+            return '臺中';
+        case 'KHH':
+            return '高雄';
+        case 'ANP':
+            return '安平';
+        case 'HUN':
+            return '花蓮';
+        case 'PEN':
+            return '澎湖';
+        case 'BUD':
+            return '布袋';
+        default:
+            return '未知區域';
+    }
+}
+
+// Example usage:
+console.log(getChineseName('TPE')); // should output '臺北'
+console.log(getChineseName('KEE')); // should output '基隆'
+
+
+  function getPortName(portName: string) {
     switch (portName) {
       case "KHH":
         return "高雄港";
@@ -103,15 +133,15 @@
 </script>
 
 {#if portName}
-  <div class="main-container">
+  <div class="other-container">
     <div class="center-panel">
       <div class="title-row">
         <div class="title-text">
-          {getPortNAme(portName)}能源管理資訊平台
+          {getChineseName(portName)}能源管理資訊平台
         </div>
       </div>
       <div class="desc-row">
-        <button class="nav-btn" on:click={toMainPort}>總港</button>
+        <button class="nav-btn" on:click={toMainPort}><div class='home-icon'></div>回首頁</button>
         <div class="date">{formattedDate}</div>
       </div>
       <div class="center-row">
@@ -122,7 +152,7 @@
               <div class="today">
                 <div class="today-dsum-title">當日累計用電量</div>
                 <div class="today-dsum-value">
-                  {dataResPort[22].POWER_DSUM}度
+                  {dataResPort[22].POWER_DSUM} 度
                 </div>
               </div>
               <BarChart
@@ -168,7 +198,7 @@
               <div class="today">
                 <div class="today-dsum-title">當日累計用水量</div>
                 <div class="today-dsum-value">
-                  {dataResPort[22].WATER_DSUM}噸
+                  {dataResPort[22].WATER_DSUM} 噸
                 </div>
               </div>
               <BarChart
@@ -213,30 +243,74 @@
           </div>
         </div>
         <div class="right-side">
+          <div class="top-panel-title">能源資訊</div>
           <div class="top-panel">
-            <div class="right-title">綠色能源資訊</div>
-            <div class="each-info">
-              <div class="info-title">當日累計用電量</div>
-              <div class="info-value">
-                {Math.round(dataResPort[22].POWER_DSUM)} 度
+            <div class="data-row">
+              <div class="left">太陽光電</div>
+              <div class="right">
+                <div class="inner-top">
+                  <div class="name">當月累計發電量</div>
+                  <div class="value">231 度</div>
+                </div>
+                <div class="inner-bottom">
+                  <div class="name">年累計使用量</div>
+                  <div class="value">1241 度</div>
+                </div>
               </div>
             </div>
-            <div class="each-info">
-              <div class="info-title">當日累計用水量</div>
-              <div class="info-value">
-                {Math.round(dataResPort[22].WATER_DSUM)} 噸
+            <div class="data-row">
+              <div class="left">儲能電池</div>
+              <div class="right">
+                <div class="inner-top">
+                  <div class="name">當月累計發電量</div>
+                  <div class="value">400 度</div>
+                </div>
+                <div class="inner-bottom">
+                  <div class="name">年累計使用量</div>
+                  <div class="value">5112 度</div>
+                </div>
               </div>
             </div>
-            <div class="each-info">
-              <div class="info-title">當月累計碳排量</div>
-              <div class="info-value">
-                {Math.round(dataResPort[22].WATER_MSUM)} 噸
+            <div class="data-row">
+              <div class="left">再生水及儲水站</div>
+              <div class="right">
+                <div class="inner-top">
+                  <div class="name">當月累計發電量</div>
+                  <div class="value">120 度</div>
+                </div>
+                <div class="inner-bottom">
+                  <div class="name">年累計使用量</div>
+                  <div class="value">1562 度</div>
+                </div>
               </div>
             </div>
-            <div class="each-info">
-              <div class="info-title">當年累計碳排量</div>
-              <div class="info-value">
-                {Math.round(dataResPort[22].WATER_YSUM)} 噸
+          </div>
+          <div class="bottom-panel-title">減碳資訊</div>
+          <div class="bottom-panel">
+            <div class="data-row">
+              <div class="left">太陽能上月發電量 267 度</div>
+              <div class="right">
+                <div class="inner-top">
+                  <div class="name">上月減碳量</div>
+                  <div class="value">40 噸</div>
+                </div>
+                <div class="inner-bottom">
+                  <div class="name">年累計減碳量</div>
+                  <div class="value">512 噸</div>
+                </div>
+              </div>
+            </div>
+            <div class="data-row">
+              <div class="left">再生水上月用水量 290 度</div>
+              <div class="right">
+                <div class="inner-top">
+                  <div class="name">上月減碳量</div>
+                  <div class="value">21 噸</div>
+                </div>
+                <div class="inner-bottom">
+                  <div class="name">年累計減碳量</div>
+                  <div class="value">261 噸</div>
+                </div>
               </div>
             </div>
           </div>
@@ -248,7 +322,7 @@
 {/if}
 
 <style lang="postcss">
-  .main-container {
+  .other-container {
     width: 1280px;
     height: 948px;
     display: flex;
@@ -280,9 +354,10 @@
         width: 100%;
         display: flex;
         justify-content: space-between;
+        margin: 0 0 10px 0;
         .nav-btn {
           all: unset;
-          width: 60px;
+          /* width: 60px; */
           height: 30px;
           background-color: transparent;
           font-size: 20px;
@@ -294,7 +369,16 @@
           align-items: center;
           color: #fff;
           &:hover {
-            background-color: #3ea5ea;
+            color: #3ea5ea;
+          }
+          .home-icon {
+            background-image: url('$lib/icon/home.svg');
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-position: center;
+            width: 24px;
+            height: 24px;
+            margin: 0 8px 0 0;
           }
         }
         .date {
@@ -304,7 +388,7 @@
       }
       .center-row {
         display: flex;
-        height: calc(100% - 40px);
+        height: calc(100% - 50px);
         width: 100%;
 
         .left-side {
@@ -389,8 +473,14 @@
         .right-side {
           display: flex;
           flex-direction: column;
+          align-items: center;
           height: calc(100% - 10px);
           width: 25%;
+          .top-panel-title {
+            color: #fff;
+            font-size: 20px;
+            margin: 0px 0 5px 0;
+          }
           .top-panel {
             width: 100%;
             height: 100%;
@@ -399,26 +489,51 @@
             background-color: rgb(25, 36, 56);
             display: flex;
             flex-direction: column;
-            align-items: center;
             box-sizing: border-box;
-            padding: 10px;
-            .right-title {
-              margin-top: 20px;
-              margin-bottom: 20px;
-              color: #fff;
-              justify-content: center;
-              font-size: 20px;
-            }
-            .each-info {
+            justify-content: space-evenly;
+            .data-row {
               display: flex;
-              margin: 0 0 20px 30px;
-              .info-title {
+              justify-content: space-evenly;
+              .left {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 14px;
                 color: #fff;
-                width: 120px;
+                width: 40%;
+                text-align: center;
               }
-              .info-value {
-                color: #3ea5ea;
-                width: 100px;
+              .right {
+                display: flex;
+                flex-direction: column;
+                right: 60%;
+                .inner-top {
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  .name {
+                    font-size: 12px;
+                    color: #fff;
+                  }
+                  .value {
+                    font-size: 12px;
+                    color: #3ea5ea;
+                  }
+                }
+                .inner-bottom {
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  margin: 10px 0 0 0;
+                  .name {
+                    font-size: 12px;
+                    color: #fff;
+                  }
+                  .value {
+                    font-size: 12px;
+                    color: #3ea5ea;
+                  }
+                }
               }
             }
           }
@@ -430,12 +545,63 @@
             font-size: 16px;
             margin: 10px 0 0 0;
           }
+          .bottom-panel-title {
+            color: #fff;
+            font-size: 20px;
+            margin: 10px 0 5px 0;
+          }
           .bottom-panel {
             width: 100%;
             height: 60%;
             border: 1px solid #3075a3;
             border-radius: 40px;
             background-color: rgb(25, 36, 56);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            .data-row {
+              display: flex;
+              justify-content: space-evenly;
+              .left {
+                display: flex;
+                align-items: center;
+                font-size: 14px;
+                color: #fff;
+                width: 50%;
+                text-align: center;
+              }
+              .right {
+                display: flex;
+                flex-direction: column;
+                .inner-top {
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  .name {
+                    font-size: 12px;
+                    color: #fff;
+                  }
+                  .value {
+                    font-size: 12px;
+                    color: #3ea5ea;
+                  }
+                }
+                .inner-bottom {
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  margin: 10px 0 0 0;
+                  .name {
+                    font-size: 12px;
+                    color: #fff;
+                  }
+                  .value {
+                    font-size: 12px;
+                    color: #3ea5ea;
+                  }
+                }
+              }
+            }
           }
         }
       }

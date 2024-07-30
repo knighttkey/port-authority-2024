@@ -2,7 +2,7 @@
   import OtherPort from "$lib/view/MainLayout/OtherPort.svelte";
 </script>
 
-<OtherPort portName={'APG'}/>
+<OtherPort portName={'BUD'}/>
 
 <style lang="postcss">
 </style>
