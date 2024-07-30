@@ -31,7 +31,9 @@
     "23",
   ];
   let originalDate = rawData.RESULT[0].USE_DATE;
-  let formattedDate = dayjs(originalDate, "YYYYMMDD").format("YYYY/MM/DD 23:59");
+  let formattedDate = dayjs(originalDate, "YYYYMMDD").format(
+    "YYYY/MM/DD 23:59"
+  );
   let dataRes = rawData.RESULT.map((item, index) => {
     return {
       port: item.PORT,
@@ -54,7 +56,7 @@
   });
   console.log("dataRes::: ", dataRes);
   let dataResPort = dataRes.filter((item) => {
-    return item.port === 'KHH';
+    return item.port === "KHH";
   });
   let barDataPower = dataResPort.map((item) => {
     return item.power_hsum;
@@ -84,33 +86,32 @@
 
   function getChineseName(areaCode: string): string {
     switch (areaCode) {
-        case 'KEE':
-            return '基隆';
-        case 'TPE':
-            return '臺北';
-        case 'SUA':
-            return '蘇澳';
-        case 'TXG':
-            return '臺中';
-        case 'KHH':
-            return '高雄';
-        case 'ANP':
-            return '安平';
-        case 'HUN':
-            return '花蓮';
-        case 'PEN':
-            return '澎湖';
-        case 'BUD':
-            return '布袋';
-        default:
-            return '未知區域';
+      case "KEE":
+        return "基隆";
+      case "TPE":
+        return "臺北";
+      case "SUA":
+        return "蘇澳";
+      case "TXG":
+        return "臺中";
+      case "KHH":
+        return "高雄";
+      case "ANP":
+        return "安平";
+      case "HUN":
+        return "花蓮";
+      case "PEN":
+        return "澎湖";
+      case "BUD":
+        return "布袋";
+      default:
+        return "未知區域";
     }
-}
+  }
 
-// Example usage:
-console.log(getChineseName('TPE')); // should output '臺北'
-console.log(getChineseName('KEE')); // should output '基隆'
-
+  // Example usage:
+  console.log(getChineseName("TPE")); // should output '臺北'
+  console.log(getChineseName("KEE")); // should output '基隆'
 
   function getPortName(portName: string) {
     switch (portName) {
@@ -141,7 +142,10 @@ console.log(getChineseName('KEE')); // should output '基隆'
         </div>
       </div>
       <div class="desc-row">
-        <button class="nav-btn" on:click={toMainPort}><div class='home-icon'></div>回首頁</button>
+        <button class="nav-btn" on:click={toMainPort}
+          ><div class="home-icon"></div>
+          回首頁</button
+        >
         <div class="date">{formattedDate}</div>
       </div>
       <div class="center-row">
@@ -328,6 +332,7 @@ console.log(getChineseName('KEE')); // should output '基隆'
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: Noto Sans;
     .center-panel {
       width: 85%;
       height: auto;
@@ -372,7 +377,7 @@ console.log(getChineseName('KEE')); // should output '基隆'
             color: #3ea5ea;
           }
           .home-icon {
-            background-image: url('$lib/icon/home.svg');
+            background-image: url("$lib/icon/home.svg");
             background-repeat: no-repeat;
             background-size: 100%;
             background-position: center;

@@ -273,6 +273,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: Noto Sans;
     .center-panel {
       width: 85%;
       height: auto;
